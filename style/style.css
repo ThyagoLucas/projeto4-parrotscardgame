@@ -1,0 +1,87 @@
+body{  
+    background-color: #9aa077; 
+    display: flex;
+    justify-content: center;
+}
+
+.corpo{
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 120px ;
+    justify-content: center;
+    background-color:orange
+}
+
+.title-page{
+    background-color: lightgreen;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+
+}
+
+.cards{
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #75B79E;
+    
+}
+
+.card{
+    width: 147px;
+    height: 183.17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 17px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.card img{
+    width: 80px;
+}
+
+.card.back-face img{
+    display: none;
+}
+
+  .face {
+   
+    background-color: #A7E9AF;
+    
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+
+   
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+  }
+
+  .back-face {
+    transform: rotateY(180deg);
+  }
+
+  .card:hover .back-face {
+    transform: rotateY(0deg);
+  }
+
+  .card:hover .front-face {
+    transform: rotateY(-180deg);
+  }
