@@ -1,9 +1,14 @@
 let vetor1 = [];
 let vetor2 = [];
+let carta1 = null;
+let carta2 = null;
+let img1 = null;
+let img2 = null;
+let jogadas = 0;
 let numOfCards = start();
+let blokcards = false;
 
-console.log(vetor1);
-console.log(vetor2);
+
 function start(){
     let numero = prompt("Digite");
     parseInt(numero);
@@ -33,54 +38,118 @@ function gerarVetorAleatorio(numCards){
                     existe = true;                    
                 }
             }
-                if(existe == false) {
-                    vetor1[i] = a; 
-                    i++;
-                }
-    }
-    }
-
-    associaVetor(vetor1);
+            if(existe == false) {
+                vetor1[i] = a; 
+                i++;
+            
+            }
+        }
+    }   associaEDistribui(vetor1);
 }
-
-function associaVetor(vetor1){
+   
+function associaEDistribui(vetor1){
 
     let vetorImg = ['bobrossparrot.gif','explodyparrot.gif',
     'fiestaparrot.gif','metalparrot.gif','revertitparrot.gif',
     'tripletsparrot.gif', 'unicornparrot.gif'];
 
+    let vetorImpresso = [];
+ 
     for(let i = 0 ; i< vetor1.length; i++){
+        vetor1[i] = vetorImg[vetor1[i]];
+    }
+    
+    let cartas = document.querySelector(".cards");
+    cartas.innerHTML = ' ';
+    
+    
+    for( let i = 0; i<vetor1.length;i++){
+       vetorImpresso[i] = vetor1[i];
+    }
+    
 
-        vetor1[i] = vetorImg[i];
+    for( let i = 0; i<vetor1.length;i++){
+      vetorImpresso.push(vetor1[i]);
     }
 
 
-    vetor2 = vetor1;
+    vetorImpresso.sort(comparador);
+    vetor2 = vetorImpresso;
+
+    for(let i = 0; i<vetorImpresso.length; i++){
+        cartas.innerHTML = cartas.innerHTML +  `
+        <div class="card" onclick="recebeCarta1(this, '${vetorImpresso[i]}')">
+            <img src="img/front.png">
+        </div>`
+    }
+    console.log(vetorImpresso);
+
+
+
 }
 
+function recebeCarta1(img, nomedacarta){
+
+
+    if(blokcards == false){
+
+    img.innerHTML = "<img src='img/"+nomedacarta+"'/>";
+
+
+    if(carta1 == null){
+        carta1=img;
+        img1 = nomedacarta;
+    }
+    else{
+        carta2 = img;
+        img2 = nomedacarta;
+    }
+
+    verifica(img);
+    jogadas = jogadas+1;
+
+    }
+
+}
+
+
+function verifica(img){
+
+    if((img1 && img2) != null){
+
+        blokcards = true;
+        if(img1 == img2){
+            blokcards = false;
+            img1 = null;
+            img2 = null;
+            carta1 = null;
+            carta2 = null;
+       
+        }else{
+            setTimeout(vira, 2000);
+        }
+    }
+
+    function vira(img){
+        let cartas = document.querySelector(".cards");
+       
+        blokcards = false;
+        img1 = null;
+        img2 = null;
+        carta1.innerHTML ="<img src='img/front.png'/>";
+        carta2.innerHTML ="<img src='img/front.png'/>";
+        carta1 = null;
+        carta2 = null;    
+    }
+}
+
+
+function comparador() { 
+	return Math.random() - 0.5; 
+}
 
 function random(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-
-function viraCard(){
-    const vira = document.querySelector(".card");
-    vira.classList.remove("face");
-    vira.classList.add("back-face");
-    desviraCard();
-}
-
-function desviraCard(){
-    const desvira = document.querySelector(".card");
-    desvira.classList.remove("back-face");
-}
-
-function relacionaCca(){
-}
-
-
-//Math.floor(Math.random(cards)*cards.length)
-

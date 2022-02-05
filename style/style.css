@@ -70,7 +70,7 @@ body{
 
    
     backface-visibility: hidden;
-    transition: all .5s;
+    transition: all 1s;
     transform-style: preserve-3d;
   }
 
@@ -78,10 +78,4 @@ body{
     transform: rotateY(180deg);
   }
 
-  .card:hover .back-face {
-    transform: rotateY(0deg);
-  }
 
-  .card:hover .front-face {
-    transform: rotateY(-180deg);
-  }
