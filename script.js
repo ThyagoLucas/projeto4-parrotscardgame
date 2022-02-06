@@ -1,20 +1,27 @@
 let vetor1 = [];
-let vetor2 = [];
 let carta1 = null;
 let carta2 = null;
 let img1 = null;
 let img2 = null;
 let jogadas = 0;
-let numOfCards = start();
+let terminou = null;
+let numOfCards = setTimeout(start, 1000);
+
+let tempo = true;
+let seconds = 1;
 let blokcards = false;
+let blockcarta1 = true;
 
 
 function start(){
-    let numero = prompt("Digite");
+    let numero = prompt("Digite o numero de cartas: numeros pares entre 4 e 14 :)");
     parseInt(numero);
     if((numero>3 && numero<15) && (numero%2 == 0)){
         numero = numero;
+        terminou = numero;
         gerarVetorAleatorio(numero);
+        relogio;
+
     } else{
         start();
     }
@@ -66,83 +73,114 @@ function associaEDistribui(vetor1){
     for( let i = 0; i<vetor1.length;i++){
        vetorImpresso[i] = vetor1[i];
     }
-    
 
     for( let i = 0; i<vetor1.length;i++){
       vetorImpresso.push(vetor1[i]);
     }
 
-
     vetorImpresso.sort(comparador);
-    vetor2 = vetorImpresso;
 
+    //depois de embaralhado, coloca as cartas na tela
     for(let i = 0; i<vetorImpresso.length; i++){
         cartas.innerHTML = cartas.innerHTML +  `
-        <div class="card" onclick="recebeCarta1(this, '${vetorImpresso[i]}')">
+        <figure class="card ini${i+1}" onclick="recebeCarta1(this, '${vetorImpresso[i]}')">
             <img src="img/front.png">
-        </div>`
+        </figure>`
+        
     }
-    console.log(vetorImpresso);
-
-
-
 }
 
 function recebeCarta1(img, nomedacarta){
 
-
     if(blokcards == false){
+        img.innerHTML = "<img src='img/"+nomedacarta+"'/>";
+        
+        if(blockcarta1==true){
+            carta1=img;
+            img1 = nomedacarta;
+            jogadas++
+            img.classList.add('block');
+            blockcarta1 = false;        
+        }else{
+            carta2 = img;
+            img2 = nomedacarta;
+            blockcarta1 = true;
+            jogadas++
+            img.classList.add('block');
+            verifica();
+        }
 
-    img.innerHTML = "<img src='img/"+nomedacarta+"'/>";
+        if(seconds == 1){
+            relogio();
+        }
+        
+        let mudaClic = document.querySelector(".jogadas");
+        mudaClic.innerHTML = jogadas + ' jogadas'; 
+        
 
-
-    if(carta1 == null){
-        carta1=img;
-        img1 = nomedacarta;
     }
-    else{
-        carta2 = img;
-        img2 = nomedacarta;
-    }
-
-    verifica(img);
-    jogadas = jogadas+1;
-
-    }
-
+  
 }
 
 
-function verifica(img){
 
-    if((img1 && img2) != null){
+function verifica(){
+   
+    if((carta1 && carta2) != null){
 
         blokcards = true;
+
         if(img1 == img2){
-            blokcards = false;
+         
             img1 = null;
             img2 = null;
             carta1 = null;
             carta2 = null;
+            blokcards = false;
+            terminou= terminou-2;
+            if (terminou/2 == 0){
+                tempo = false;
+                seconds = seconds-1;
+                setTimeout(reinicia, 1000);
+                               
+            }
        
         }else{
-            setTimeout(vira, 2000);
+            setTimeout(vira, 1000);
         }
-    }
-
-    function vira(img){
-        let cartas = document.querySelector(".cards");
-       
-        blokcards = false;
-        img1 = null;
-        img2 = null;
-        carta1.innerHTML ="<img src='img/front.png'/>";
-        carta2.innerHTML ="<img src='img/front.png'/>";
-        carta1 = null;
-        carta2 = null;    
     }
 }
 
+function vira(){
+
+    let cartas = document.querySelector(".cards");
+
+    carta1.classList.remove('block');
+    carta2.classList.remove('block');
+    carta1.innerHTML ="<img src='img/front.png'/>";
+    carta2.innerHTML ="<img src='img/front.png'/>";
+    carta1 = null;
+    carta2 = null;   
+    img1 = null;
+    img2 = null; 
+    blokcards = false;
+}
+
+function reinicia(){
+    
+    alert("Voce ganhou em "+jogadas+" jogadas e " +seconds+ " segundos :)");
+
+    let simOuNao = prompt("Deseja jogar novamente? Digite S ou N ");
+    let naoquer = true
+    if((simOuNao == 'S' || simOuNao == 's') && naoquer){
+        document.location.reload();
+    }else{
+        alert("Se quiser jogar novamente atualize a pagina ;)");
+        naoquer = false;
+        
+    }
+
+}
 
 function comparador() { 
 	return Math.random() - 0.5; 
@@ -152,4 +190,15 @@ function random(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function relogio(){
+
+    let time = document.querySelector(".time");
+    
+    if(tempo == true){
+        time.innerHTML = seconds;
+        seconds++;
+        setTimeout(relogio, 1000);
+    }
 }

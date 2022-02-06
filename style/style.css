@@ -1,21 +1,57 @@
+@keyframes inicioTitulo {
+    0% {opacity: 100%;}
+    25% {opacity:0%}
+    50% {opacity:100%;}
+    75% {opacity:0%;}
+    100% {opacity:100%;}
+}
+@keyframes posicaoInicial1 {
+    0% {opacity: 100%; top: 0%;}
+    50% {opacity: 70%;}
+    80% {opacity: 60%;}
+    100% {opacity: 50%; top: 100%;}
+}
+
+
+@keyframes inicio1 {
+    0% {opacity: 50%; top: 100; bottom: 0 ; left: 0; right: 0;}
+    25% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
+    50% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
+    75% {opacity: 90%;top: 0; bottom: 0 ;left: 0; right: 0 ;}
+    100% {opacity: 100%; top: 0%; bottom: 0 ; left: 0; right: 0 ;}
+}
+@keyframes inicio2 {
+    0% {opacity: 50%; top: 100%; bottom: 0 ; left: 0; right: 0;}
+    25% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
+    50% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
+    75% {opacity: 90%;top: 0; bottom: 0 ;left: 0; right: 0 ;}
+    100% {opacity: 100%; top: 0%; bottom: 0 ; left: 0; right: 0 ;}
+}
+
+  
+
 body{  
-    background-color: #9aa077; 
+    background-color: #EEF6BF;
     display: flex;
     justify-content: center;
+    
+
 }
 
 .corpo{
-    background-color: beige;
+   
+    
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-top: 120px ;
-    justify-content: center;
-    background-color:orange
+    align-items: center;
+    height: 100% ;   
+    position: absolute;
+    
+   
+  
 }
 
 .title-page{
-    background-color: lightgreen;
 
     display: flex;
     align-items: center;
@@ -28,15 +64,22 @@ body{
     line-height: 66px;
     letter-spacing: -0.004em;
     color: #75B79E;
+    animation-name: inicioTitulo;
+    animation-duration: 3s;
 
 }
 
 .cards{
+    
     background-color: antiquewhite;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    position: relative;
+    width: calc(100% - 35px );
+    height: 100%;
     flex-wrap: wrap;
     background-color: #75B79E;
+    
     
 }
 
@@ -50,32 +93,130 @@ body{
     border: 1px solid #99CEA8;
     box-sizing: border-box;
     border-radius: 5px;
-    margin: 17px;
+    margin: 10px;
     position: relative;
-    transform-style: preserve-3d;
+    
+    
 }
 .card img{
     width: 80px;
 }
 
-.card.back-face img{
-    display: none;
+.block{
+    pointer-events: none;
+}
+.tempoejogadas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 35px);
+    
+    background-color: lightpink;
+    margin-bottom: 10px;
+}
+.time{
+    width: 35px;
+    height: 35px;display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    border: 3px solid #e25614;  
+    border-radius: 50%;
+    background-color: #99CEA8;
+    margin-right: 10px
+    
+
 }
 
-  .face {
-   
-    background-color: #A7E9AF;
+.posicaoInicial1 {
+    animation-name: posicaoInicial1;
+    animation-duration: 3s;
+
+}
+
+
+
+.ini1{
+    animation-name: inicio1;
+    animation-duration: 0.8s;
     
-    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    
+}
+.ini2{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+    
+}
+.ini3{
+    animation-name: inicio1;
+    animation-duration: 0.8s;
+}
+.ini4{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+}
+.ini5{
+    animation-name: inicio1;
+    animation-duration: 0.8s;
+}
+.ini6{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+    
+}
+.ini7{
+    animation-name: inicio1;
+    animation-duration: 0.8s;
+}
+.ini8{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+}
+.ini9{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+}
+.ini10{
+    animation-name: inicio1;
+    animation-duration: 0.8s;
+}
+.ini10{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+}
+.ini11{
+    animation-name: inicio1;
+    animation-duration: 0.8s;
+}
+.ini12{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+}
+.ini13{
+    animation-name: inicio1;
+    animation-duration: 0.8s;
+}
+.ini14{
+    animation-name: inicio2;
+    animation-duration: 0.8s;
+}
+@media (max-width: 470px){
+    .cards{
+        width:  100%;
+        margin: 15px;
 
-   
-    backface-visibility: hidden;
-    transition: all 1s;
-    transform-style: preserve-3d;
-  }
+    }
+    .corpo{
+        margin-top: 25px;
+    }
 
-  .back-face {
-    transform: rotateY(180deg);
-  }
-
-
+    .card{
+        width: 250px;
+        height: 311.51px;
+    }
+    .card img{
+        width: 110px;
+    }
+    
+}
