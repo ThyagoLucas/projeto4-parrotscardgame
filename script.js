@@ -92,7 +92,7 @@ function associaEDistribui(vetor1){
 function recebeCarta1(img, nomedacarta){
 
     if(blokcards == false){
-        img.innerHTML = "<img src='img/"+nomedacarta+"'/>";
+        img.innerHTML = "<img  data-identifier='front-face' src='img/"+nomedacarta+"'/>";
         
         if(blockcarta1==true){
             carta1=img;
@@ -154,8 +154,8 @@ function vira(){
 
     carta1.classList.remove('block');
     carta2.classList.remove('block');
-    carta1.innerHTML ="<img src='img/front.png'/>";
-    carta2.innerHTML ="<img src='img/front.png'/>";
+    carta1.innerHTML ="<img data-identifier='back-face' src='img/front.png'/>";
+    carta2.innerHTML ="<img data-identifier='back-face' src='img/front.png'/>";
     carta1 = null;
     carta2 = null;   
     img1 = null;
