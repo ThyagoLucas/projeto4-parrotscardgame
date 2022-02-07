@@ -5,7 +5,7 @@ let img1 = null;
 let img2 = null;
 let jogadas = 0;
 let terminou = null;
-let inicio = setTimeout(start, 2999);
+let inicio = setTimeout(start, 2800);
 
 let tempo = true;
 let seconds = 1;
@@ -82,7 +82,7 @@ function associaEDistribui(vetor1){
     //depois de embaralhado, coloca as cartas na tela
     for(let i = 0; i<vetorImpresso.length; i++){
         cartas.innerHTML = cartas.innerHTML +  `
-        <figure class="card ini${i+1}" onclick="recebeCarta1(this, '${vetorImpresso[i]}')">
+        <figure class="card ini${i+1}" data-identifier="card" onclick="recebeCarta1(this, '${vetorImpresso[i]}')">
             <img src="img/front.png">
         </figure>`
         
