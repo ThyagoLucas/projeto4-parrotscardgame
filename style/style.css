@@ -7,52 +7,49 @@
 }
 @keyframes posicaoInicial1 {
     0% {opacity: 100%; top: 0%;}
-    50% {opacity: 70%;}
-    80% {opacity: 60%;}
-    100% {opacity: 50%; top: 100%;}
+    50% {opacity: 50%;}
+    80% {opacity: 30%;}
+    100% {opacity: 25%; top: 100%;}
 }
-
 
 @keyframes inicio1 {
-    0% {opacity: 50%; top: 100; bottom: 0 ; left: 0; right: 0;}
-    25% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
-    50% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
-    75% {opacity: 90%;top: 0; bottom: 0 ;left: 0; right: 0 ;}
-    100% {opacity: 100%; top: 0%; bottom: 0 ; left: 0; right: 0 ;}
+    0% {opacity: 25%; top: 100%; bottom: 15%; left: 0; right: 0;}
+    25% {opacity: 30%; top: 100%; bottom: 0 ;left: 15%; right:0;}
+    50% {opacity: 50%; top: 100%; bottom: 0 ;left: 0; right:15%;}
+    75% {opacity: 60%;top: 100%; bottom: 0 ;left: 15%; right: 0 ;}
+    100% {opacity: 100%; top: 0%; bottom: 15% ; left: 0; right: 0 ;}
 }
 @keyframes inicio2 {
-    0% {opacity: 50%; top: 100%; bottom: 0 ; left: 0; right: 0;}
-    25% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
-    50% {opacity: 90%; top: 0; bottom: 0 ;left: 0; right:0;}
-    75% {opacity: 90%;top: 0; bottom: 0 ;left: 0; right: 0 ;}
-    100% {opacity: 100%; top: 0%; bottom: 0 ; left: 0; right: 0 ;}
+    0% {opacity: 25%; top: 100%; bottom: 0%; left: 0; right: 15%;}
+    25% {opacity: 30%; top: 100%; bottom: 0 ;left: 15%; right:0;}
+    50% {opacity: 50%; top: 100%; bottom: 15% ;left: 0; right:0;}
+    75% {opacity: 60%;top: 100%; bottom: 0 ;left: 15%; right: 0 ;}
+    100% {opacity: 100%; top: 0%; bottom:  0; left: 0; right: 15% ;}
 }
-
-  
+@keyframes inicio3   {
+    0% {opacity: 25%; top: 100%; bottom: 0%; left: 15%; right: 0;}
+    25% {opacity: 30%; top: 100%; bottom: 15% ;left: 0; right:0;}
+    50% {opacity: 50%; top: 100%; bottom: 0 ;left: 15%; right:0;}
+    75% {opacity: 60%;top: 100%; bottom: 0 ;left: 15%; right: 15% ;}
+    100% {opacity: 100%; top: 0%; bottom:  0; left: 0; right: 0 ;}
+}
 
 body{  
     background-color: #EEF6BF;
     display: flex;
     justify-content: center;
-    
-
 }
 
 .corpo{
-   
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100% ;   
     position: absolute;
-    
-   
-  
+    height: 100%;
 }
 
 .title-page{
-
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,17 +67,12 @@ body{
 }
 
 .cards{
-    
-    background-color: antiquewhite;
     display: flex;
     justify-content: space-around;
     position: relative;
-    width: calc(100% - 35px );
-    height: 100%;
-    flex-wrap: wrap;
-    background-color: #75B79E;
-    
-    
+    width: 100%;
+    height: 60%;
+    flex-wrap: wrap;    
 }
 
 .card{
@@ -94,8 +86,7 @@ body{
     box-sizing: border-box;
     border-radius: 5px;
     margin: 10px;
-    position: relative;
-    
+    position: relative;  
     
 }
 .card img{
@@ -110,98 +101,86 @@ body{
     justify-content: space-between;
     align-items: center;
     width: calc(100% - 35px);
-    
-    background-color: lightpink;
+    height: 20px;
     margin-bottom: 10px;
 }
 .time{
-    width: 35px;
-    height: 35px;display: flex;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: darkred;
     align-items: center;
     justify-content: center;
-
-    
-    border: 3px solid #e25614;  
     border-radius: 50%;
-    background-color: #99CEA8;
-    margin-right: 10px
-    
-
+    margin-right: 10px;
+}
+.jogadas{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: darkred;
 }
 
 .posicaoInicial1 {
     animation-name: posicaoInicial1;
     animation-duration: 3s;
-
 }
-
-
-
 .ini1{
     animation-name: inicio1;
-    animation-duration: 0.8s;
-    
-    
+    animation-duration: 1s;  
 }
 .ini2{
     animation-name: inicio2;
-    animation-duration: 0.8s;
-    
+    animation-duration: 1.5s;   
 }
 .ini3{
-    animation-name: inicio1;
-    animation-duration: 0.8s;
+    animation-name: inicio3;
+    animation-duration: 1s;
 }
 .ini4{
     animation-name: inicio2;
-    animation-duration: 0.8s;
+    animation-duration: 1.5s;
 }
 .ini5{
     animation-name: inicio1;
-    animation-duration: 0.8s;
+    animation-duration: 1s;
 }
 .ini6{
-    animation-name: inicio2;
-    animation-duration: 0.8s;
-    
+    animation-name: inicio3;
+    animation-duration: 1.5s;  
 }
 .ini7{
     animation-name: inicio1;
-    animation-duration: 0.8s;
+    animation-duration: 1s;
 }
 .ini8{
     animation-name: inicio2;
-    animation-duration: 0.8s;
+    animation-duration: 1.5s;
 }
 .ini9{
-    animation-name: inicio2;
-    animation-duration: 0.8s;
+    animation-name: inicio3;
+    animation-duration: 1s;
 }
 .ini10{
     animation-name: inicio1;
-    animation-duration: 0.8s;
-}
-.ini10{
-    animation-name: inicio2;
-    animation-duration: 0.8s;
+    animation-duration: 1.5s;
 }
 .ini11{
     animation-name: inicio1;
-    animation-duration: 0.8s;
+    animation-duration: 1.5s;
 }
 .ini12{
-    animation-name: inicio2;
-    animation-duration: 0.8s;
+    animation-name: inicio3;
+    animation-duration: 1s;
 }
 .ini13{
     animation-name: inicio1;
-    animation-duration: 0.8s;
+    animation-duration: 1.5s;
 }
 .ini14{
     animation-name: inicio2;
-    animation-duration: 0.8s;
+    animation-duration: 1s;
 }
 @media (max-width: 470px){
+  
     .cards{
         width:  100%;
         margin: 15px;

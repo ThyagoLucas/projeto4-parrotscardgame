@@ -5,7 +5,7 @@ let img1 = null;
 let img2 = null;
 let jogadas = 0;
 let terminou = null;
-let numOfCards = setTimeout(start, 1000);
+let inicio = setTimeout(start, 2999);
 
 let tempo = true;
 let seconds = 1;
@@ -69,7 +69,6 @@ function associaEDistribui(vetor1){
     let cartas = document.querySelector(".cards");
     cartas.innerHTML = ' ';
     
-    
     for( let i = 0; i<vetor1.length;i++){
        vetorImpresso[i] = vetor1[i];
     }
@@ -121,8 +120,6 @@ function recebeCarta1(img, nomedacarta){
     }
   
 }
-
-
 
 function verifica(){
    
@@ -177,9 +174,7 @@ function reinicia(){
     }else{
         alert("Se quiser jogar novamente atualize a pagina ;)");
         naoquer = false;
-        
     }
-
 }
 
 function comparador() { 
@@ -197,7 +192,7 @@ function relogio(){
     let time = document.querySelector(".time");
     
     if(tempo == true){
-        time.innerHTML = seconds;
+        time.innerHTML = seconds + ' s';
         seconds++;
         setTimeout(relogio, 1000);
     }
